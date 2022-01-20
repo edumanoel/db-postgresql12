@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  pgdb:
+    image: postgres:12.5
+    environment:
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432:5432
+    volumes:
+      - ./storage:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: mail@postgresql.com
+      PGADMIN_DEFAULT_PASSWORD: password
+    ports:
+      - 15432:80
+    depends_on:
+      - pgdb
