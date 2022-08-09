@@ -4,18 +4,18 @@ services:
   pgdb:
     image: postgres:12.5
     environment:
-      POSTGRES_PASSWORD: #senha
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
     ports:
-      - 5432:5432 #definir porta
+      - 5432:5432
     volumes:
       - ./storage:/var/lib/postgresql/data
 
   pgadmin:
     image: dpage/pgadmin4
     environment:
-      PGADMIN_DEFAULT_EMAIL: #email
-      PGADMIN_DEFAULT_PASSWORD: #senha
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
     ports:
-      - 15432:80 #definir porta
+      - 15432:80
     depends_on:
       - pgdb
