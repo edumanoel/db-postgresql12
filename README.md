@@ -1,4 +1,4 @@
-# Docker compose db postgresql + pgAdmin 4
+# Docker compose db postgreSQL 12 + pgAdmin 4
 
 Configuração básica para uso em localhost.
 
